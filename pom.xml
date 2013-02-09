@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.klauer</groupId>
+  <artifactId>bakedbeans</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Baked Beans - configuration library for Java</name>
+  <description>A configuration library for Java using @annotations and Jackson to serialize beans into various formats</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.fasterxml</groupId>
+  		<artifactId>jackson-xml-databind</artifactId>
+  		<version>0.6.2</version>
+  		<type>bundle</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson</groupId>
+  		<artifactId>jackson-datatype-guava</artifactId>
+  		<version>1.9.2</version>
+  		<type>bundle</type>
+  	</dependency>
+  </dependencies>
+</project>
