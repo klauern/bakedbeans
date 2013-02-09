@@ -7,16 +7,34 @@
   <description>A configuration library for Java using @annotations and Jackson to serialize beans into various formats</description>
   <dependencies>
   	<dependency>
-  		<groupId>com.fasterxml</groupId>
-  		<artifactId>jackson-xml-databind</artifactId>
-  		<version>0.6.2</version>
-  		<type>bundle</type>
+  		<groupId>com.fasterxml.jackson.core</groupId>
+  		<artifactId>jackson-core</artifactId>
+  		<version>2.1.3</version>
   	</dependency>
   	<dependency>
-  		<groupId>com.fasterxml.jackson</groupId>
-  		<artifactId>jackson-datatype-guava</artifactId>
-  		<version>1.9.2</version>
-  		<type>bundle</type>
+  		<groupId>com.fasterxml.jackson.core</groupId>
+  		<artifactId>jackson-annotations</artifactId>
+  		<version>2.1.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.core</groupId>
+  		<artifactId>jackson-databind</artifactId>
+  		<version>2.1.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.dataformat</groupId>
+  		<artifactId>jackson-dataformat-csv</artifactId>
+  		<version>2.1.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.dataformat</groupId>
+  		<artifactId>jackson-dataformat-xml</artifactId>
+  		<version>2.1.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.dataformat</groupId>
+  		<artifactId>jackson-dataformat-yaml</artifactId>
+  		<version>2.1.3</version>
   	</dependency>
   </dependencies>
 </project>
