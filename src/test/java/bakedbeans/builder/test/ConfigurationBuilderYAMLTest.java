@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import bakedbeans.example.BakedConfiguration;
 import bakedbeans.example.PersonDetails;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -21,10 +22,11 @@ public class ConfigurationBuilderYAMLTest {
 	
 	@Test
 	public void shouldMapPersonDetails() throws JsonParseException, JsonMappingException, IOException {
-		PersonDetails person = mapper.readValue(Resources.getResource(EXAMPLE_YAML), PersonDetails.class);
+		BakedConfiguration config= mapper.readValue(Resources.getResource(EXAMPLE_YAML), BakedConfiguration.class);
+		PersonDetails person = config.getNick();
 		assertThat(person.getFirst()).isEqualTo("Nick");
 		assertThat(person.getDescription()).isEqualTo("An Amazing Guy");
 		assertThat(person.getLast()).isEqualTo("Klauer");
 	}
-
+	
 }

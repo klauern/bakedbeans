@@ -10,4 +10,8 @@ public class BakedConfiguration extends Configuration {
 	@JsonProperty
 	PersonDetails nick = new PersonDetails();
 
+	
+	public PersonDetails getNick() {
+		return nick;
+	}
 }
