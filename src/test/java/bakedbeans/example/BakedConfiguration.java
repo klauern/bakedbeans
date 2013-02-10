@@ -1,10 +1,11 @@
 package bakedbeans.example;
 
-import bakedbeans.core.Configuration;
+import bakedbeans.core.ConfigFile;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BakedConfiguration extends Configuration {
+@ConfigFile(location = "yaml/example.yaml")
+public class BakedConfiguration {
 	
 	
 	@JsonProperty
