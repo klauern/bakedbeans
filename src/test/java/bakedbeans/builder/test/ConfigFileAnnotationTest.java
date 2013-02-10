@@ -22,5 +22,5 @@ public class ConfigFileAnnotationTest {
 		assertThat(config_classes.size()).isGreaterThan(0);
 		assertThat(config_classes).contains(BakedConfiguration.class);
 	}
-
+	
 }
