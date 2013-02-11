@@ -18,14 +18,14 @@ public class MultipleBakedConfiguration implements Configuration {
     public PersonDetails edward = new PersonDetails();
 
     public PersonDetails getNick() {
-	return nick;
+        return nick;
     }
 
     public BirthdayDetails getRobert() {
-	return robert;
+        return robert;
     }
 
     public PersonDetails getEdward() {
-	return edward;
+        return edward;
     }
 }

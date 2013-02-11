@@ -7,27 +7,27 @@ public class PersonDetails {
     private String description;
 
     public String getFirst() {
-	return first;
+        return first;
     }
 
     public void setFirst(String first) {
-	this.first = first;
+        this.first = first;
     }
 
     public String getLast() {
-	return last;
+        return last;
     }
 
     public void setLast(String last) {
-	this.last = last;
+        this.last = last;
     }
 
     public String getDescription() {
-	return description;
+        return description;
     }
 
     public void setDescription(String description) {
-	this.description = description;
+        this.description = description;
     }
 
 }

@@ -15,18 +15,18 @@ public class ConfigurationFactory<T> {
     List<T> configurations;
 
     public ConfigurationFactory(ObjectMapper mapper, List<T> configs,
-	    Class<T> klass) {
-	this.mapper = mapper;
-	this.configurations = configs;
-	this.klass = klass;
+            Class<T> klass) {
+        this.mapper = mapper;
+        this.configurations = configs;
+        this.klass = klass;
     }
 
     public List<T> mapBeans(File source) throws JsonParseException,
-	    JsonMappingException, IOException {
-	for (T conf : configurations) {
-	    conf = mapper.readValue(source, klass);
-	}
-	return configurations;
+            JsonMappingException, IOException {
+        for (T conf : configurations) {
+            conf = mapper.readValue(source, klass);
+        }
+        return configurations;
     }
 
 }

@@ -12,6 +12,6 @@ public class SimpleBakedConfiguration implements Configuration {
     PersonDetails nick = new PersonDetails();
 
     public PersonDetails getNick() {
-	return nick;
+        return nick;
     }
 }

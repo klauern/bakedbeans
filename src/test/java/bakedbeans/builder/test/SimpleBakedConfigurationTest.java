@@ -24,24 +24,24 @@ public class SimpleBakedConfigurationTest {
 
     @Test
     public void shouldMapPersonDetails() throws JsonParseException,
-	    JsonMappingException, IOException {
-	SimpleBakedConfiguration config = mapper.readValue(
-		Resources.getResource(EXAMPLE_YAML),
-		SimpleBakedConfiguration.class);
-	PersonDetails person = config.getNick();
-	assertThat(person.getFirst()).isEqualTo("Nick");
-	assertThat(person.getDescription()).isEqualTo("An Amazing Guy");
-	assertThat(person.getLast()).isEqualTo("Klauer");
+            JsonMappingException, IOException {
+        SimpleBakedConfiguration config = mapper.readValue(
+                Resources.getResource(EXAMPLE_YAML),
+                SimpleBakedConfiguration.class);
+        PersonDetails person = config.getNick();
+        assertThat(person.getFirst()).isEqualTo("Nick");
+        assertThat(person.getDescription()).isEqualTo("An Amazing Guy");
+        assertThat(person.getLast()).isEqualTo("Klauer");
     }
 
     @Ignore
     @Test
     public void shouldIgnoreExtraFields() throws JsonParseException,
-	    JsonMappingException, IOException {
-	SimpleBakedConfiguration config = mapper.readValue(
-		Resources.getResource(EXTRA_EXAMPLE_YAML),
-		SimpleBakedConfiguration.class);
-	PersonDetails person = config.getNick();
+            JsonMappingException, IOException {
+        SimpleBakedConfiguration config = mapper.readValue(
+                Resources.getResource(EXTRA_EXAMPLE_YAML),
+                SimpleBakedConfiguration.class);
+        PersonDetails person = config.getNick();
     }
 
 }

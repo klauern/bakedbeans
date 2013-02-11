@@ -23,32 +23,32 @@ public class MultipleBakedConfigurationTest {
 
     @Before
     public void setUp() {
-	registry = new BeanRegistry("bakedbeans.example");
+        registry = new BeanRegistry("bakedbeans.example");
     }
 
     @Test
     public void shouldMapMultipleElementsInAYAML() throws JsonParseException,
-	    JsonMappingException, IOException {
-	Map<Class, Configuration> configs = registry.mapBakedBeans();
-	assertThat(configs).containsKey(SimpleBakedConfiguration.class);
-	assertThat(configs).containsKey(MultipleBakedConfiguration.class);
+            JsonMappingException, IOException {
+        Map<Class, Configuration> configs = registry.mapBakedBeans();
+        assertThat(configs).containsKey(SimpleBakedConfiguration.class);
+        assertThat(configs).containsKey(MultipleBakedConfiguration.class);
     }
 
     @Test
     public void shouldCreateEdwardAndNick() throws JsonParseException,
-	    JsonMappingException, IOException {
-	Map<Class, Configuration> configs = registry.mapBakedBeans();
-	MultipleBakedConfiguration ed_and_nick = (MultipleBakedConfiguration) configs
-		.get(MultipleBakedConfiguration.class);
+            JsonMappingException, IOException {
+        Map<Class, Configuration> configs = registry.mapBakedBeans();
+        MultipleBakedConfiguration ed_and_nick = (MultipleBakedConfiguration) configs
+                .get(MultipleBakedConfiguration.class);
 
-	PersonDetails ed = ed_and_nick.getEdward();
-	PersonDetails nick = ed_and_nick.getNick();
+        PersonDetails ed = ed_and_nick.getEdward();
+        PersonDetails nick = ed_and_nick.getNick();
 
-	assertThat(ed.getFirst()).isEqualTo("Edward");
-	assertThat(ed.getLast()).isEqualTo("Cullen");
+        assertThat(ed.getFirst()).isEqualTo("Edward");
+        assertThat(ed.getLast()).isEqualTo("Cullen");
 
-	assertThat(nick.getFirst()).isEqualTo("Nick");
-	assertThat(nick.getLast()).isEqualTo("Klauer");
+        assertThat(nick.getFirst()).isEqualTo("Nick");
+        assertThat(nick.getLast()).isEqualTo("Klauer");
     }
 
 }
