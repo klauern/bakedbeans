@@ -1,0 +1,7 @@
+nick:
+    # Comments should be acceptable
+    age: 30
+    description: An Amazing Guy
+
+    first: Nick
+    last: Klauer

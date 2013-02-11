@@ -8,6 +8,8 @@ import java.util.Set;
 import org.reflections.Reflections;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -26,6 +28,7 @@ public class BeanRegistry {
 	public BeanRegistry() {
 		configurations = Lists.newArrayList();
 		reflections = new Reflections("");
+		yaml_mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	
 	public BeanRegistry(String package_scope) {
@@ -33,7 +36,7 @@ public class BeanRegistry {
 		reflections = new Reflections(package_scope);
 	}
 	
-	public <T> void addConfiguration(Configuration<T> config) {
+	public void addConfiguration(Configuration config) {
 		configurations.add(config);
 	}
 	
@@ -43,7 +46,8 @@ public class BeanRegistry {
 		for (Class<?> configured_class : configured_classes) {
 			ConfigFile cf = configured_class.getAnnotation(ConfigFile.class);
 			if (cf.filetype().equals(ConfigType.YAML)) {
-				configs.put(configured_class, yaml_mapper.readValue(Resources.getResource(cf.location()), configured_class));
+				
+				configs.put(configured_class, (T) yaml_mapper.readValue(Resources.getResource(cf.location()), configured_class));
 			}
 		}
 		return configs;

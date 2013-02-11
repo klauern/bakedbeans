@@ -1,0 +1,14 @@
+robert:
+    time_to_death: 41
+
+    birthday: 1/1/1900
+
+nick:
+    first: Nick
+    last: Klauer
+    description: Someone Very Cool
+
+edward:
+    first: Edward
+    last: Cullen
+    description: A hack
