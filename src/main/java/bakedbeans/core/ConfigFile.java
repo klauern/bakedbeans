@@ -8,8 +8,9 @@ import java.lang.annotation.Target;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.FIELD})
+@Target({ ElementType.TYPE, ElementType.FIELD })
 public @interface ConfigFile {
-	String location() default "configuration.yaml";
-	ConfigType filetype() default ConfigType.YAML;
+    String location() default "configuration.yaml";
+
+    ConfigType filetype() default ConfigType.YAML;
 }

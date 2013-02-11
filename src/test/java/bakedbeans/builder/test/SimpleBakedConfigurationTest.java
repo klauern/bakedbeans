@@ -18,24 +18,30 @@ import com.google.common.io.Resources;
 
 public class SimpleBakedConfigurationTest {
 
-	private final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-	private static final String EXAMPLE_YAML = "yaml/nick.yaml";
-	private static final String EXTRA_EXAMPLE_YAML = "yaml/extra-nick.yaml";
-	
-	@Test
-	public void shouldMapPersonDetails() throws JsonParseException, JsonMappingException, IOException {
-		SimpleBakedConfiguration config= mapper.readValue(Resources.getResource(EXAMPLE_YAML), SimpleBakedConfiguration.class);
-		PersonDetails person = config.getNick();
-		assertThat(person.getFirst()).isEqualTo("Nick");
-		assertThat(person.getDescription()).isEqualTo("An Amazing Guy");
-		assertThat(person.getLast()).isEqualTo("Klauer");
-	}
-	
-	@Ignore
-	@Test
-	public void shouldIgnoreExtraFields() throws JsonParseException, JsonMappingException, IOException {
-		SimpleBakedConfiguration config = mapper.readValue(Resources.getResource(EXTRA_EXAMPLE_YAML), SimpleBakedConfiguration.class);
-		PersonDetails person = config.getNick();
-	}
-	
+    private final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+    private static final String EXAMPLE_YAML = "yaml/nick.yaml";
+    private static final String EXTRA_EXAMPLE_YAML = "yaml/extra-nick.yaml";
+
+    @Test
+    public void shouldMapPersonDetails() throws JsonParseException,
+	    JsonMappingException, IOException {
+	SimpleBakedConfiguration config = mapper.readValue(
+		Resources.getResource(EXAMPLE_YAML),
+		SimpleBakedConfiguration.class);
+	PersonDetails person = config.getNick();
+	assertThat(person.getFirst()).isEqualTo("Nick");
+	assertThat(person.getDescription()).isEqualTo("An Amazing Guy");
+	assertThat(person.getLast()).isEqualTo("Klauer");
+    }
+
+    @Ignore
+    @Test
+    public void shouldIgnoreExtraFields() throws JsonParseException,
+	    JsonMappingException, IOException {
+	SimpleBakedConfiguration config = mapper.readValue(
+		Resources.getResource(EXTRA_EXAMPLE_YAML),
+		SimpleBakedConfiguration.class);
+	PersonDetails person = config.getNick();
+    }
+
 }

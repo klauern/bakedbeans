@@ -1,3 +1,4 @@
 package bakedbeans.core;
 
-public interface Configuration { }
+public interface Configuration {
+}

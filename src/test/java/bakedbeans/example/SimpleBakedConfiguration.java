@@ -7,13 +7,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ConfigFile(location = "yaml/nick.yaml")
 public class SimpleBakedConfiguration implements Configuration {
-	
-	
-	@JsonProperty
-	PersonDetails nick = new PersonDetails();
 
-	
-	public PersonDetails getNick() {
-		return nick;
-	}
+    @JsonProperty
+    PersonDetails nick = new PersonDetails();
+
+    public PersonDetails getNick() {
+	return nick;
+    }
 }
