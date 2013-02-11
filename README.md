@@ -92,7 +92,7 @@ public class SimpleBakedConfiguration implements Configuration {
 
 And finally, you can use a `BeanRegistry` instance to pull out these beans:
 
-```
+```java
 BeanRegistry registry = new BeanRegistry(); // can also pass the package-scope to the constructor
 Map<Class, Configuration> configs = registry.mapBakedBeans();
 SimpleBakedConfiguration c = configs.get(SimpleBakedConfiguration.class);
