@@ -23,7 +23,6 @@ public class BeanRegistry {
 	private Set<Class<?>> configured_classes;
 	private final ObjectMapper yaml_mapper = new ObjectMapper(new YAMLFactory());
 	
-	
 	public BeanRegistry() {
 		reflections = new Reflections("");
 		yaml_mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
@@ -31,6 +30,7 @@ public class BeanRegistry {
 	
 	public BeanRegistry(String package_scope) {
 		reflections = new Reflections(package_scope);
+		yaml_mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	
 	public <T extends Configuration> Map<Class,T> mapBakedBeans() throws JsonParseException, JsonMappingException, IOException {
