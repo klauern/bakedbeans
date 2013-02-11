@@ -12,6 +12,8 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvFactory;
+import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -22,6 +24,8 @@ public class BeanRegistry {
 	private Reflections reflections;
 	private Set<Class<?>> configured_classes;
 	private final ObjectMapper yaml_mapper = new ObjectMapper(new YAMLFactory());
+	private final ObjectMapper json_mapper = new ObjectMapper();
+	private final ObjectMapper xml_mapper = new ObjectMapper(new XmlFactory());
 	
 	public BeanRegistry() {
 		reflections = new Reflections("");
@@ -38,10 +42,17 @@ public class BeanRegistry {
 		Map<Class,T> configs = Maps.newHashMap();
 		for (Class<?> configured_class : configured_classes) {
 			ConfigFile cf = configured_class.getAnnotation(ConfigFile.class);
-			if (cf.filetype().equals(ConfigType.YAML)) {
-				
+			ConfigType parse_type = cf.filetype();
+			if (parse_type.equals(ConfigType.YAML)) {
 				configs.put(configured_class, (T) yaml_mapper.readValue(Resources.getResource(cf.location()), configured_class));
+			} else if (parse_type.equals(ConfigType.JSON)) {
+				configs.put(configured_class, (T) json_mapper.readValue(Resources.getResource(cf.location()), configured_class));
+			} else if (parse_type.equals(ConfigType.XML)) {
+				configs.put(configured_class, (T) xml_mapper.readValue(Resources.getResource(cf.location()), configured_class));
+			} else {
+				throw new JsonMappingException("Unknown data format " + parse_type);
 			}
+			
 		}
 		return configs;
 	}
