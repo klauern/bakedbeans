@@ -19,25 +19,18 @@ import com.google.common.io.Resources;
 
 public class BeanRegistry {
 
-	private List<Configuration> configurations;
 	private Reflections reflections;
 	private Set<Class<?>> configured_classes;
 	private final ObjectMapper yaml_mapper = new ObjectMapper(new YAMLFactory());
 	
 	
 	public BeanRegistry() {
-		configurations = Lists.newArrayList();
 		reflections = new Reflections("");
 		yaml_mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	
 	public BeanRegistry(String package_scope) {
-		configurations = Lists.newArrayList();
 		reflections = new Reflections(package_scope);
-	}
-	
-	public void addConfiguration(Configuration config) {
-		configurations.add(config);
 	}
 	
 	public <T extends Configuration> Map<Class,T> mapBakedBeans() throws JsonParseException, JsonMappingException, IOException {
