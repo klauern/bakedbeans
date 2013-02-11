@@ -34,6 +34,7 @@ public class BeanRegistry {
 		yaml_mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <T extends Configuration> Map<Class,T> mapBakedBeans() throws JsonParseException, JsonMappingException, IOException {
 		this.configured_classes = reflections.getTypesAnnotatedWith(ConfigFile.class);
 		Map<Class,T> configs = Maps.newHashMap();
